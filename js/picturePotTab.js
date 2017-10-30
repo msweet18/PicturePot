@@ -2,8 +2,7 @@
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
-		// alert(request.message);
-		if (request.message == 'updateImages') {
+		if (request.message === 'updateImages') {
 			chrome.storage.local.get(/* String or Array */["links"], function(items){
 				console.log(items);
 				console.log(items.links.length);
@@ -95,13 +94,14 @@ var addImages = function(images){
 		// Set Destination Props
 		$(dest).addClass('q-image-link');
 		$(destButton).text('Link');
-		dest.href = images[i].imageDest;
-		dest.target = '_blank';
-		dest.appendChild(destButton);
+		if (images[i].imageDest !== "") {
+			dest.href = images[i].imageDest;
+			dest.target = '_blank';
+			dest.appendChild(destButton);
+			buttonContainer.appendChild(dest);
+		}
 
 		buttonContainer.appendChild(loc);
-		buttonContainer.appendChild(dest);
-
 		imageContainer.appendChild(img);
 
 		item.appendChild(imageContainer);
@@ -135,36 +135,6 @@ var setImageListener = function(images) {
 		}
 
 		$pageContainer.toggleClass('modal-shown');
-		// $(this).toggleClass('full-width');
 	});
 };
 
-// document.addEventListener('DOMContentLoaded', function() {
-// 	var x = document.getElementById('tracked_image');
-// 	x.style.backgroundColor = "aqua";
-// }, false);
-
-// chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
-// 	if (msg.message == 'SendIt') {
-// 		alert("Message recieved!");
-// 	}
-// });
-//
-
-// window.onload = function() {
-//     alert('Ready');
-//     //Send a message
-//     // sendMessage();
-// };
-
-// //Send message to background page
-// function sendMessage() {
-//     //Construct & send message
-//     chrome.runtime.sendMessage({
-//         method: "postList",
-//         post_list: "ThePostList"
-//     }, function(response) {
-//         //Alert the message
-//         alert("The response from the background page: " + response.response);//You have to choose which part of the response you want to display ie. response.response
-//     });
-// }
