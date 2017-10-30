@@ -89,17 +89,6 @@ body {
 	vertical-align: middle;
 }
 
-.q-page-container .q-images .q-item-container {
-	display: flex;
-	flex: 1 1 auto;
-	flex-direction: column;
-	height: 200px;
-	margin: auto;
-	max-width: 20%;
-	padding: 4px 4px 8px 4px;
-	width: 18%;
-}
-
 .q-page-container .q-image-tab-header .q-title-button-container {
 	display: inline-block;
 	flex: 1 1 auto;
@@ -142,6 +131,17 @@ body {
 	background-color: firebrick;
 }
 
+.q-page-container .q-images .q-item-container {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	height: 200px;
+	margin: auto;
+	max-width: 20%;
+	padding: 4px 4px 8px 4px;
+	width: 18%;
+}
+
 .q-page-container .q-images .q-item-container .q-image-container {
 	align-items: center;
 	display: flex;
@@ -181,6 +181,7 @@ body {
 	background-color: powderblue;
 	border-radius: 8px;
 	font-weight: 500;
+	padding: 0;
 	width: 100%;
 }
 
