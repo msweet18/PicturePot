@@ -10,7 +10,7 @@ body {
 }
 
 .q-page-container.modal-shown .q-background-modal .zoom {
-	background-color: powderblue;
+	background-color: white;
 	background-repeat: no-repeat;
 	background-size: contain;
 	border-radius: 8px;
@@ -117,6 +117,33 @@ body {
 	line-height: 60px;
 }
 
+.q-page-container .q-image-tab-header .q-image-zoom-container {
+	margin: 2px;
+}
+
+.q-page-container .q-image-tab-header .q-image-zoom-container .zoom {
+	cursor: pointer;
+	background-color: white;
+	background-position: 94%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border-radius: 8px;
+	display: grid;
+	font-weight: bold;
+	margin: 4px;
+	padding-right: 18px;
+	text-align: left;
+	width: 100%;
+}
+
+.q-page-container .q-image-tab-header .q-image-zoom-container .zoom-in-all {
+	background-image: url(../icons/zoomInIcon.png);
+}
+
+.q-page-container .q-image-tab-header .q-image-zoom-container .zoom-out-all {
+	background-image: url(../icons/zoomOutIcon.png);
+}
+
 .q-page-container .q-image-tab-header .q-title-button-container.q-show-image-links-button-container .q-title-button {
 	cursor: pointer;
 	border-radius: 8px;
@@ -174,6 +201,30 @@ body {
 	transition: all 1s;
 }
 
+.q-page-container .q-images .q-item-container.q-image-zoom-1 {
+	height: 250px;
+	max-width: 28%;
+	width: 20%;
+}
+
+.q-page-container .q-images .q-item-container.q-image-zoom-2 {
+	height: 380px;
+	max-width: 33%;
+	width: 30%;
+}
+
+.q-page-container .q-images .q-item-container.q-image-zoom-3 {
+	height: 536px;
+	max-width: 50%;
+	width: 44%;
+}
+
+.q-page-container .q-images .q-item-container.q-image-zoom-4 {
+    height: 536px;
+    max-width: 100%;
+    width: 50%;
+}
+
 .q-page-container .q-images .q-item-container .q-image-container.pretty{
 	background-color: black;
 	border: solid 1px darkgrey;
@@ -183,8 +234,9 @@ body {
 .q-page-container .q-images .q-item-container .q-image-container .q-image {
 	cursor: zoom-in;
 	margin: auto;
-	max-height: 100%;
-	max-width: 100%;
+	object-fit: contain;
+	height: 100%;
+	width: 100%;
 }
 
 .q-page-container .q-images .q-item-container .q-image-container.pretty .q-image {
@@ -214,24 +266,24 @@ body {
 	width: 50%;
 }
 
-// #dragBox {
+/*// #dragBox {
 // 	border: 1px solid #aaaaaa;
 // 	height: 70px;
 // 	padding: 10px;
 // 	width: 350px;
-// }
+// }*/
 
 .q-show-image-links-button:active {
 	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 	transform: translate3d(0, 0, 0);
-	// backface-visibility: hidden;
-	// perspective: 1000px;
+/*	// backface-visibility: hidden;
+	// perspective: 1000px;*/
 }
 
-// .q-show-image-links-button.image-links-hidden {
+/*// .q-show-image-links-button.image-links-hidden {
 // 	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 // 	transform: translate3d(0, 0, 0);
-// }
+// }*/
 
 @keyframes shake {
 	10%, 90% {

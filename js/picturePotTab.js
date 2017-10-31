@@ -18,6 +18,8 @@ chrome.runtime.onMessage.addListener(
 	}
 );
 
+var imageZoom = 0;
+
 var initPicturePotTab = function() {
 	// Show and hide image links when 'show-image-links-button' is clicked
 	$('.js-show-image-links-button').click(function() {
@@ -35,29 +37,41 @@ var initPicturePotTab = function() {
 	// Zoom in to modal image
 	$('.zoom-in-modal').click(function() {
 		var $modalImage = $('.q-modal-image')[0];
-		var imageHeight = $modalImage.clientHeight;
 
-		console.log($modalImage);
-
-		console.log(imageHeight);
-		console.log(imageHeight.toString());
-
-		$modalImage.style.height = (imageHeight*.8) + 'px';
+		$modalImage.style.height = ($modalImage.clientHeight*1.1).toString() + 'px';
 
 	});
 
 	// Zoom out to modal image
 	$('.zoom-out-modal').click(function() {
 		var $modalImage = $('.q-modal-image')[0];
-		var imageHeight = $modalImage.clientHeight;
 
-		console.log($modalImage);
+		$modalImage.style.height = ($modalImage.clientHeight*.8).toString() + 'px';
 
-		console.log(imageHeight);
-		console.log(imageHeight.toString());
+	});
 
-		$modalImage.style.height = (imageHeight*1.1).toString() + 'px';
+		// Zoom in to modal image
+	$('.zoom-in-all').click(function() {
+		var $allImages = $('.q-item-container'),
+			imageZoomClass = 'q-image-zoom-';
 
+		if (imageZoom <= 3) {
+			$allImages.toggleClass(imageZoomClass + imageZoom.toString());
+			imageZoom ++;
+			$allImages.toggleClass(imageZoomClass + imageZoom.toString());
+		}
+	});
+
+	// Zoom out to modal image
+	$('.zoom-out-all').click(function() {
+		var $allImages = $('.q-item-container'),
+			imageZoomClass = 'q-image-zoom-';
+
+		if (imageZoom >= 1) {
+			$allImages.toggleClass(imageZoomClass + imageZoom.toString());
+			imageZoom --;
+			$allImages.toggleClass(imageZoomClass + imageZoom.toString());
+		}
 	});
 
 	// Remove image styling when 'remove-image-styling-button' is clicked
@@ -95,7 +109,7 @@ var addImages = function(images){
 			destButton = document.createElement('button');
 
 		// Set imageContainer Props
-		$(item).addClass('q-item-container');
+		$(item).addClass('q-item-container').addClass('q-image-zoom-0');
 
 		// Set imageContainer Props
 		$(imageContainer).addClass('q-image-container').addClass('pretty');
