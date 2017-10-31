@@ -32,6 +32,34 @@ var initPicturePotTab = function() {
 		$('.q-button-container').toggle('slow');
 	});
 
+	// Zoom in to modal image
+	$('.zoom-in-modal').click(function() {
+		var $modalImage = $('.q-modal-image')[0];
+		var imageHeight = $modalImage.clientHeight;
+
+		console.log($modalImage);
+
+		console.log(imageHeight);
+		console.log(imageHeight.toString());
+
+		$modalImage.style.height = (imageHeight*.8) + 'px';
+
+	});
+
+	// Zoom out to modal image
+	$('.zoom-out-modal').click(function() {
+		var $modalImage = $('.q-modal-image')[0];
+		var imageHeight = $modalImage.clientHeight;
+
+		console.log($modalImage);
+
+		console.log(imageHeight);
+		console.log(imageHeight.toString());
+
+		$modalImage.style.height = (imageHeight*1.1).toString() + 'px';
+
+	});
+
 	// Remove image styling when 'remove-image-styling-button' is clicked
 	$('.js-remove-image-styling-button').click(function() {
 		$(this).toggleClass('pretty');
@@ -107,8 +135,6 @@ var addImages = function(images){
 		item.appendChild(imageContainer);
 		item.appendChild(buttonContainer);
 
-		console.log(images[i]);
-
 		// Add it to the list:
 		container.appendChild(item);
 		imagesArray.push(img);
@@ -127,14 +153,15 @@ var setImageListener = function(images) {
 		if(!$pageContainer.hasClass('modal-shown')) {
 			$(this).parent().addClass('q-modal-image-parent');
 			$backgroundModalImageContainer[0].appendChild(this);
+			$(this).addClass('q-modal-image');
 		} else {
 			$parentContainer = $('.q-modal-image-parent');
 			$parentContainer[0].insertAdjacentElement('afterbegin', this);
 			$parentContainer.removeClass('q-modal-image-parent');
 			imageId = $(this).data('id');
+			$(this).removeClass('q-modal-image');
 		}
 
 		$pageContainer.toggleClass('modal-shown');
 	});
 };
-

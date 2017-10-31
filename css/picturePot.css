@@ -9,6 +9,24 @@ body {
 	flex-wrap: wrap;
 }
 
+.q-page-container.modal-shown .q-background-modal .zoom {
+	background-color: powderblue;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border-radius: 8px;
+	cursor: pointer;
+	padding-left: 24px;
+	width: auto;
+}
+
+.q-page-container.modal-shown .q-background-modal .zoom.zoom-in-modal {
+	background-image: url(../icons/zoomInIcon.png);
+}
+
+.q-page-container.modal-shown .q-background-modal .zoom.zoom-out-modal {
+	background-image: url(../icons/zoomOutIcon.png);
+}
+
 .q-page-container.modal-shown .q-background-modal .q-image {
 	background-color: whitesmoke;
 	border: 1px solid black;
@@ -16,16 +34,18 @@ body {
 	bottom: 0;
 	cursor: zoom-out;
 	display: block;
-	height: auto;
+	height: 100%;
 	left: 0;
 	margin: auto;
-	max-height: -webkit-fill-available;
-	max-width: -webkit-fill-available;
+	margin-top: 24px;
+	max-height: 100%;
+	max-width: 100%;
 	object-fit: contain;
 	padding: 16px;
 	position: absolute;
 	right: 0;
 	top: 0;
+	transition: height .2s ease-out;
 	width: 100%;
 	z-index: 20;
 }
@@ -34,6 +54,7 @@ body {
 	height: 80%;
 	width: 70%;
 	left: 15%;
+	margin-top: -24px;
 	position: absolute;
 	text-align: center;
 	top: 10%;
@@ -49,17 +70,18 @@ body {
 	z-index: 10;
 }
 
-.q-page-container .q-images,
+/*Causing Issues*/
+/*.q-page-container .q-images,
 .q-page-container .q-image-tab-header,
 .q-page-container .q-background-modal {
 	opacity: 1;
 	transition: opacity 1s ease-out;
-}
+}*/
 
 .q-page-container.modal-shown .q-images,
 .q-page-container.modal-shown .q-image-tab-header,
 .q-page-container:not(.modal-shown) .q-background-modal {
-	opacity: 0;
+	display: none;
 }
 
 .q-page-container .q-image-tab-header {
@@ -124,7 +146,7 @@ body {
 	color: whitesmoke;
 	float: left;
 	transition: background-color 1s;
-	width: 60px;
+	width: 68px;
 }
 
 .q-page-container .q-image-tab-header .q-title-button-container.q-remove-image-styling-button-container .q-remove-image-styling-button.pretty {
