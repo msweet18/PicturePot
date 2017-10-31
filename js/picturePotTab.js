@@ -174,6 +174,7 @@ var setImageListener = function(images) {
 			$parentContainer.removeClass('q-modal-image-parent');
 			imageId = $(this).data('id');
 			$(this).removeClass('q-modal-image');
+			$(this)[0].style.height = '100%';
 		}
 
 		$pageContainer.toggleClass('modal-shown');
